@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/row_container"
+        android:padding="5dp"
+
+>
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher_round"
+            android:id="@+id/icon"
+            android:layout_gravity="center"
+    />
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@id/icon"
+            android:layout_weight="1"
+            android:id="@+id/title_area"
+            android:layout_gravity="center">
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/row_title"
+                android:text="Title"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:textColor="@color/Black"
+
+        />
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="End Date:"
+                    android:textColor="@color/Black"
+            />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:id="@+id/end_date"
+                    android:text="Jan 01, 2099"
+                    android:textColor="@color/Black"
+            />
+
+        </LinearLayout>
+        <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/progressBar"
+                android:layout_weight="1"
+                android:progress="50"
+                android:progressTint="@color/Red"
+        />
+
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:id="@+id/counter_layout"
+            android:visibility="visible"
+    >
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/complete_layout"
+                android:visibility="invisible"
+        >
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Complete!"
+                    android:gravity="center"
+                    android:id="@+id/complete_text"
+                    android:textColor="@color/Green"
+            />
+        </LinearLayout>
+        <LinearLayout android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_gravity="center">
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="00"
+                      android:textSize="20dp"
+                      android:id="@+id/progress_current"
+                      android:textColor="@color/Black"
+            />
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text=" / "
+                      android:textSize="20dp"
+                      android:textColor="@color/Black"
+            />
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="00"
+                      android:textSize="20dp"
+                      android:id="@+id/progress_goal"
+                      android:textColor="@color/Black"
+            />
+
+        </LinearLayout>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Days"
+                android:gravity="center"
+                android:layout_gravity="center"
+        />
+
+    </LinearLayout>
+
+</LinearLayout>
