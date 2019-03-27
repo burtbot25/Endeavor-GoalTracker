@@ -143,8 +143,8 @@ class MainActivity : AppCompatActivity(), DeleteFragment.DeleteFragmentListener 
 
     }
 
-//    // Events for menu items
-//    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+    // Events for menu items
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
 //        // Opens AddGoalActivity when Add icon is pressed
 //        R.id.toolbar_goal -> {
 //            val intent = Intent(this, AddGoalActivity::class.java)
@@ -163,15 +163,21 @@ class MainActivity : AppCompatActivity(), DeleteFragment.DeleteFragmentListener 
 //            startActivity(intent)
 //            true
 //        }
-//        else -> {
-//            super.onOptionsItemSelected(item)
-//        }
-//    }
-//
-//    // Inflates menu items in appbar
-//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-//        menuInflater.inflate(R.menu.menu, menu)
-//        return true
-//    }
+        // Opens Info Activity
+        R.id.toolbar_info -> {
+            val intent = Intent(this, InfoActivity::class.java)
+            startActivity(intent)
+            true
+        }
+        else -> {
+            super.onOptionsItemSelected(item)
+        }
+    }
+
+    // Inflates menu items in appbar
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
 
 }

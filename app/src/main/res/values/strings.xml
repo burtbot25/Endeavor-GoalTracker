@@ -12,4 +12,29 @@
         <item name="education">Education</item>
         <item name="other">Other</item>
     </string-array>
+    <string name="specific">S - Specific</string>
+    <string name="specific_text">
+        Your goal should be clear and specific,
+        otherwise you won\'t be able to focus your efforts or feel truly motivated to achieve it.
+        When creating a goal, try to answer the five W\'s (What, Why, Who, Where, Which)
+    </string>
+    <string name="measurable">M - Measurable</string>
+    <string name="measurable_text">
+        Quantify your goals so you can track your progress and stay motivated.
+        Assessing progress helps you to stay focused.
+    </string>
+    <string name="achievable">A - Achievable</string>
+    <string name="achievable_text">
+        Your goal needs to be realistic and attainable to be successful.
+        Stretch your abilities but ensure the goal remains possible.
+    </string>
+    <string name="relevant">R - Relevant</string>
+    <string name="relevant_text">
+        Your goal should matter to you and also aligns with other relevant goals.
+        Ensure your goal is worthwhile.
+    </string>
+    <string name="timely">T - Timely</string>
+    <string name="timely_text">
+        Every goal needs a target date so that you have a deadline to focus on and something to work towards.
+    </string>
 </resources>

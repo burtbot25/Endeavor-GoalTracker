@@ -3,19 +3,25 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
+    <!--<item-->
+            <!--android:id="@+id/toolbar_goal"-->
+            <!--android:title="Add Goal"-->
+            <!--app:showAsAction="ifRoom"-->
+            <!--android:icon="@drawable/add_icon"/>-->
+    <!--<item-->
+            <!--android:id="@+id/toolbar_survey"-->
+            <!--android:title="Survey"-->
+            <!--app:showAsAction="ifRoom"-->
+            <!--android:icon="@drawable/survey_icon"/>-->
+    <!--<item-->
+            <!--android:id="@+id/toolbar_reminder"-->
+            <!--android:title="Reminder"-->
+            <!--app:showAsAction="ifRoom"-->
+            <!--android:icon="@drawable/alarm_icon"/>-->
+
     <item
-            android:id="@+id/toolbar_goal"
-            android:title="Add Goal"
+            android:id="@+id/toolbar_info"
+            android:title="Info"
             app:showAsAction="ifRoom"
-            android:icon="@drawable/add_icon"/>
-    <item
-            android:id="@+id/toolbar_survey"
-            android:title="Survey"
-            app:showAsAction="ifRoom"
-            android:icon="@drawable/survey_icon"/>
-    <item
-            android:id="@+id/toolbar_reminder"
-            android:title="Reminder"
-            app:showAsAction="ifRoom"
-            android:icon="@drawable/alarm_icon"/>
+            android:icon="@android:drawable/ic_dialog_info"/>
 </menu>

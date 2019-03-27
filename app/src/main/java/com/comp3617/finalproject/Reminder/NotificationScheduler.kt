@@ -93,7 +93,7 @@ class NotificationScheduler {
             .setContentText(content)
             .setAutoCancel(true)
             .setSound(alarmSound)
-            .setSmallIcon(R.drawable.e_logo)
+            .setSmallIcon(R.drawable.logo_check3)
             .setContentIntent(pendingIntent).build()
 
         println("Creating notification manager")

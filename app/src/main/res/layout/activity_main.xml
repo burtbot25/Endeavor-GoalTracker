@@ -63,20 +63,20 @@
                     android:layout_marginRight="24dp"
             >
                 <ImageButton android:layout_width="24dp" android:layout_height="24dp"
-                             android:src="@drawable/survey_icon"
+                             android:src="@drawable/survey_icon_white"
                              android:id="@+id/toolbar_survey"
                              android:layout_alignParentLeft="true"
                              android:background="@color/colorPrimaryDark"
 
                 />
                 <ImageButton android:layout_width="24dp" android:layout_height="24dp"
-                             android:src="@drawable/add_icon"
+                             android:src="@drawable/add_icon_white"
                              android:id="@+id/toolbar_add"
                              android:layout_centerInParent="true"
                              android:background="@color/colorPrimaryDark"
                 />
                 <ImageButton android:layout_width="24dp" android:layout_height="24dp"
-                             android:src="@drawable/alarm_icon"
+                             android:src="@drawable/alarm_icon_white"
                              android:id="@+id/toolbar_reminder"
                              android:layout_alignParentRight="true"
                              android:background="@color/colorPrimaryDark"
