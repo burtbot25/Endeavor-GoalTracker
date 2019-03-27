@@ -5,8 +5,7 @@ import android.app.DatePickerDialog
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.DatePicker
-import android.widget.Toast
+import android.widget.*
 import com.comp3617.finalproject.Fragments.DatePickerFragment
 import com.comp3617.finalproject.Model.Goal
 import com.google.firebase.database.DatabaseReference
@@ -15,7 +14,8 @@ import kotlinx.android.synthetic.main.activity_add_goal.*
 import java.text.DateFormat
 import java.util.*
 
-class AddGoalActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
+class AddGoalActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, AdapterView.OnItemSelectedListener {
+
 
     private lateinit var calendar: Calendar
     private lateinit var chosenDate: Date
@@ -23,6 +23,7 @@ class AddGoalActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener 
 
     lateinit var dbRef : DatabaseReference
     lateinit var goalList: MutableList<Goal>
+    var goalType = "Other"
     val INITIAL = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +34,16 @@ class AddGoalActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener 
         dbRef = FirebaseDatabase.getInstance().getReference("goals")
         calendar = Calendar.getInstance()
 
+        val spinner : Spinner = findViewById<Spinner>(R.id.spinner)
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.goal_types,
+            android.R.layout.simple_spinner_item
+        ).also {adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinner.adapter = adapter
+        }
+        spinner.onItemSelectedListener = this
 
         // Listener to add a task to the database
         btn_add.setOnClickListener {
@@ -48,6 +59,7 @@ class AddGoalActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener 
                     add_date.text.toString(), // end date
                     INITIAL, // progress current
                     add_quantity.text.toString().toInt(), // progress goal
+                    goalType, // goalType
                     0,0,0,0,0,0,0 // Initialize days of the week
                 )
                 dbRef.child(goalID).setValue(goal).addOnCompleteListener{
@@ -60,6 +72,8 @@ class AddGoalActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener 
         add_btn_cancel.setOnClickListener {
             finish()
         }
+
+
     }
 
     // Show Date Picker Dialog
@@ -95,5 +109,14 @@ class AddGoalActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener 
         super.onRestoreInstanceState(savedInstanceState)
         add_date.text = savedInstanceState!!.getString("date")
         formattedDate = savedInstanceState!!.getString("date")
+    }
+
+    override fun onNothingSelected(parent: AdapterView<*>?) {
+        goalType = "Other"
+    }
+
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        goalType = parent!!.getItemAtPosition(position).toString()
+        println("DROPDOWN SELECTION IS: " + parent!!.getItemAtPosition(position))
     }
 }

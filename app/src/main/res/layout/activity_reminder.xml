@@ -11,28 +11,24 @@
             android:id="@+id/llReminder"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
     >
-
-        <TextView
-                android:id="@+id/tv_reminder_header"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:layout_gravity="center"
-                android:text="Notification Settings"/>
 
         <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingTop="20dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
         >
 
             <TextView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:id="@+id/tv_reminder_label"
+                    android:textSize="20dp"
+                    android:textColor="@color/Black"
                     android:text="Daily Notifications"/>
 
             <android.support.v7.widget.SwitchCompat
@@ -42,20 +38,22 @@
                     android:checked="false"
                     android:gravity="center_vertical"
                     android:layout_alignParentRight="true"
-/>
+            />
 
         </RelativeLayout>
 
         <LinearLayout
                 android:id="@+id/ll_set_time"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
 
             <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="15dp"
+                    android:layout_weight="1"
             >
 
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -66,7 +64,8 @@
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
                             android:id="@+id/tv_reminder_time_label"
-                            android:textSize="16dp"
+                            android:textSize="20dp"
+                            android:textColor="@color/Black"
                             android:gravity=""
                             android:text="Set Reminder"/>
                     <TextView
@@ -84,14 +83,18 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
+
                         android:text="Set time"
                 />
 
 
             </RelativeLayout>
 
-
+            <Button android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Close"
+                    android:id="@+id/close_btn_reminder"
+            />
         </LinearLayout>
 
     </LinearLayout>

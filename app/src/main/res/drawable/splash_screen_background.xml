@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android" android:layout_height="match_parent" android:layout_width="match_parent">
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_height="50dp"
+            android:layout_width="50dp">
 
     <item android:drawable="@color/Black"/>
 
@@ -7,6 +9,6 @@
     <item android:gravity="center">
         <bitmap
                 android:gravity="center"
-                android:src="@drawable/e_logo_small"/>
+                android:src="@drawable/e_logo"/>
     </item>
 </layer-list>

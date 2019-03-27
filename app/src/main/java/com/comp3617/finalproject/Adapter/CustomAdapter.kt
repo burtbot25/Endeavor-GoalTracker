@@ -95,8 +95,16 @@ class CustomAdapter(private val ctx: Context, private val listGoal : List<Goal>?
     }
 
     private fun setIcon(){
-        // Note to self: put if statement to determine type of icon
-        row_icon.setImageResource(R.mipmap.ic_launcher_round)
+        when (goal.goalType){
+            "Health" -> row_icon.setImageResource(R.drawable.health96)
+            "Diet" -> row_icon.setImageResource(R.drawable.diet96)
+            "Exercise" -> row_icon.setImageResource(R.drawable.exercise96)
+            "Music" -> row_icon.setImageResource(R.drawable.music96)
+            "Art" -> row_icon.setImageResource(R.drawable.art96)
+            "Career" -> row_icon.setImageResource(R.drawable.career96)
+            "Education" -> row_icon.setImageResource(R.drawable.education96)
+            "Other" -> row_icon.setImageResource(R.drawable.other96)
+        }
     }
 
 

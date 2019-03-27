@@ -6,6 +6,7 @@ class Goal(
     var endDate: String,
     var progressCurrent: Int,
     var progressGoal: Int,
+    var goalType : String,
     var sun : Int,
     var mon : Int,
     var tue : Int,
@@ -16,11 +17,11 @@ class Goal(
 
 )
 {
-    constructor() : this ("", "", "", 0, 0, 0,0,0,0,0,0,0)
+    constructor() : this ("", "", "", 0, 0, "", 0,0,0,0,0,0,0)
 
     override fun toString(): String {
-        return "uid=$uid; title=$title, endDate=$endDate; progressCurrent=$progressCurrent; progressGoal=$progressGoal," +
-                " sun=$sun, mon=$mon, tue=$tue, wed=$wed, thu=$thu, fri=$fri, sat=$sat"
-
+        return "uid=$uid; title=$title, endDate=$endDate; progressCurrent=$progressCurrent; " +
+                "progressGoal=$progressGoal, goalType=$goalType, " +
+                "sun=$sun, mon=$mon, tue=$tue, wed=$wed, thu=$thu, fri=$fri, sat=$sat"
     }
 }

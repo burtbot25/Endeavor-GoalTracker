@@ -35,6 +35,7 @@ class EditGoalActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener
     var formattedDate: String = ""
     var incrementer : Double = 0.0
     var incrementerInt : Int = 0
+    var goalType : String = ""
     var sun = 0
     var mon = 0
     var tue = 0
@@ -59,6 +60,7 @@ class EditGoalActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener
         endDate = intent.getStringExtra("endDate")
         progressCurrent = intent.getIntExtra("progressCurrent", 0)
         progressGoal = intent.getIntExtra("progressGoal", 0)
+        goalType = intent.getStringExtra("goalType")
         sun = intent.getIntExtra("sun", 0)
         mon = intent.getIntExtra("mon", 0)
         tue = intent.getIntExtra("tue", 0)
@@ -67,7 +69,7 @@ class EditGoalActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener
         fri = intent.getIntExtra("fri", 0)
         sat = intent.getIntExtra("sat", 0)
 
-        goal = Goal(uid, title, endDate, progressCurrent, progressGoal, sun, mon, tue, wed, thu, fri, sat)
+        goal = Goal(uid, title, endDate, progressCurrent, progressGoal, goalType, sun, mon, tue, wed, thu, fri, sat)
         itemReference = dbRef.child(uid)
         println("goal: " + goal.toString())
         incrementer = (1.0 / progressGoal) * 100
@@ -80,6 +82,7 @@ class EditGoalActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener
             goal.endDate = edit_date.text.toString()
             goal.progressCurrent = progressCurrent
             goal.progressGoal = edit_quantity.text.toString().toInt()
+            goal.goalType = goalType
             goal.sun = sun
             goal.mon = mon
             goal.tue = tue

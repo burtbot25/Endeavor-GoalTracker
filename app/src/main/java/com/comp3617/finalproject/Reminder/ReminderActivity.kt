@@ -47,6 +47,7 @@ class ReminderActivity : AppCompatActivity() {
 
         reminderSwitch = findViewById(R.id.timerSwitch)
 
+
         hour = localData.getHour()
         min = localData.getMin()
 
@@ -76,6 +77,10 @@ class ReminderActivity : AppCompatActivity() {
             if (localData.getReminderStatus())
                 showTimePickerDialog(localData.getHour(), localData.getMin())
 
+        }
+
+        close_btn_reminder.setOnClickListener {
+            finish()
         }
 
     }

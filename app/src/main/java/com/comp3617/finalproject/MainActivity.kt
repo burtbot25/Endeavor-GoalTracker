@@ -4,6 +4,8 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import com.comp3617.finalproject.Model.Goal
@@ -83,6 +85,7 @@ class MainActivity : AppCompatActivity(), DeleteFragment.DeleteFragmentListener 
                 intent.putExtra("endDate", goal.endDate)
                 intent.putExtra("progressCurrent", goal.progressCurrent)
                 intent.putExtra("progressGoal", goal.progressGoal)
+                intent.putExtra("goalType", goal.goalType)
                 intent.putExtra("sun", goal.sun)
                 intent.putExtra("mon", goal.mon)
                 intent.putExtra("tue", goal.tue)
@@ -97,18 +100,18 @@ class MainActivity : AppCompatActivity(), DeleteFragment.DeleteFragmentListener 
             }
         }
 
-        add_goal.setOnClickListener {
+        toolbar_add.setOnClickListener {
             val intent = Intent(this@MainActivity, AddGoalActivity::class.java)
             startActivity(intent)
         }
 
-        survey_btn.setOnClickListener {
+        toolbar_survey.setOnClickListener {
             //val intent = Intent(this@MainActivity, SurveyActivity::class.java)
             val intent = Intent(this@MainActivity, SurveyActivity::class.java)
             startActivity(intent)
         }
 
-        alarm.setOnClickListener {
+        toolbar_reminder.setOnClickListener {
             val intent = Intent(this@MainActivity, ReminderActivity::class.java)
             startActivity(intent)
         }
@@ -139,5 +142,36 @@ class MainActivity : AppCompatActivity(), DeleteFragment.DeleteFragmentListener 
         refreshList()
 
     }
+
+//    // Events for menu items
+//    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+//        // Opens AddGoalActivity when Add icon is pressed
+//        R.id.toolbar_goal -> {
+//            val intent = Intent(this, AddGoalActivity::class.java)
+//            startActivity(intent)
+//            true
+//        }
+//        // Opens SurveyActivity when Survey icon is pressed
+//        R.id.toolbar_survey -> {
+//            val intent = Intent(this, SurveyActivity::class.java)
+//            startActivity(intent)
+//            true
+//        }
+//        // Opens ReminderActivity when Reminder icon is pressed
+//        R.id.toolbar_reminder -> {
+//            val intent = Intent(this, ReminderActivity::class.java)
+//            startActivity(intent)
+//            true
+//        }
+//        else -> {
+//            super.onOptionsItemSelected(item)
+//        }
+//    }
+//
+//    // Inflates menu items in appbar
+//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//        menuInflater.inflate(R.menu.menu, menu)
+//        return true
+//    }
 
 }

@@ -1,4 +1,15 @@
 <resources>
-    <string name="app_name">finalproject</string>
+    <string name="app_name">Endeavor</string>
     <string name="title_activity_add">Add</string>
+
+    <string-array name="goal_types">
+        <item name="health">Health</item>
+        <item name="diet">Diet</item>
+        <item name="exercise">Exercise</item>
+        <item name="music">Music</item>
+        <item name="art">Art</item>
+        <item name="career">Career</item>
+        <item name="education">Education</item>
+        <item name="other">Other</item>
+    </string-array>
 </resources>
