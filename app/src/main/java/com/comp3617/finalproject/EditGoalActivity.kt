@@ -69,6 +69,7 @@ class EditGoalActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener
         fri = intent.getIntExtra("fri", 0)
         sat = intent.getIntExtra("sat", 0)
 
+        // Set goal from Main Activity data
         goal = Goal(uid, title, endDate, progressCurrent, progressGoal, goalType, sun, mon, tue, wed, thu, fri, sat)
         itemReference = dbRef.child(uid)
         println("goal: " + goal.toString())
@@ -103,6 +104,7 @@ class EditGoalActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener
             showDeleteDialog()
         }
 
+        // Adds to Progress Circle
         progress_add.setOnClickListener {
 
             if (progressCurrent >= 0) {
@@ -121,6 +123,8 @@ class EditGoalActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener
             // Note to self: add if statements for digits that are single, double, triple digit etc...
             // Depending on how many digits, you need to multiply the 1/progressGoal by the number of digits
         }
+
+        // Subtract from Progress Circle
         progress_subtract.setOnClickListener {
             // decrement by a number
             if ((progressCurrent.toDouble() / progressGoal) <= 1.0)
@@ -135,11 +139,13 @@ class EditGoalActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener
             edit_progress_counter.text = progressCurrent.toString()
         }
 
+        // Close edit screen without save
         edit_btn_cancel.setOnClickListener {
             finish()
         }
     }
 
+    // increment day depending on the current day
     fun addToDay(){
         var day = calendar.get(Calendar.DAY_OF_WEEK)
         when (day){
@@ -153,6 +159,7 @@ class EditGoalActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener
         }
     }
 
+    // decrement day depending on the current day
     fun subtractFromDay(){
         var day = calendar.get(Calendar.DAY_OF_WEEK)
         when (day){
@@ -193,6 +200,7 @@ class EditGoalActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener
         edit_progress_goal.text = progressGoal.toString()
     }
 
+    // sets progress color
     private fun setProgressColor() {
         // we choose 98 instead of 100 because daily 1/7 = 14.xx%
         // 14 * 7 = 98

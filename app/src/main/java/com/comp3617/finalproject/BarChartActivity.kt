@@ -23,6 +23,7 @@ class BarChartActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bar_chart)
 
+        // Get values from Dashboard Activity
         title = intent.getStringExtra("title")
         sun = intent.getIntExtra("sun", 0)
         mon = intent.getIntExtra("mon", 0)
@@ -32,6 +33,7 @@ class BarChartActivity : AppCompatActivity() {
         fri = intent.getIntExtra("fri", 0)
         sat = intent.getIntExtra("sat", 0)
 
+        // Create array of values per day
         val entries = ArrayList<BarEntry>()
         entries.add(BarEntry(sun.toFloat(), 0))
         entries.add(BarEntry(mon.toFloat(), 1))
@@ -43,6 +45,7 @@ class BarChartActivity : AppCompatActivity() {
 
         val bardataset = BarDataSet(entries, "Cells")
 
+        // Assign labels to bar chart
         val labels = ArrayList<String>()
         labels.add("Sun")
         labels.add("Mon")
@@ -52,9 +55,9 @@ class BarChartActivity : AppCompatActivity() {
         labels.add("Fri")
         labels.add("Sat")
 
-
+        // set the data and list of lables into chart
         val data = BarData(labels, bardataset)
-        barChart.data = data // set the data and list of lables into chart
+        barChart.data = data
 
         barChart.setDescription("$title")  // set the description
         barChart.setDescriptionTextSize(100f)
@@ -62,6 +65,7 @@ class BarChartActivity : AppCompatActivity() {
         bardataset.setColors(ColorTemplate.COLORFUL_COLORS)
         bardataset.valueTextSize = 16f
 
+        // Shows animation
         barChart.animateY(1000)
     }
 }

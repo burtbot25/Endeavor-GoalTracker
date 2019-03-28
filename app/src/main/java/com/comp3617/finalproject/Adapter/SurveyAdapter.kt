@@ -35,8 +35,6 @@ class SurveyAdapter(private val ctx: Context, private val listGoal : List<Goal>?
     // Gets the view
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
 
-
-
         var rowView : View? = null
         calendar = Calendar.getInstance()
 
@@ -48,8 +46,10 @@ class SurveyAdapter(private val ctx: Context, private val listGoal : List<Goal>?
             rowView = convertView
         }
 
+        // get goal
         goal = listGoal!![position]
 
+        // set day value
         sun = goal.sun
         mon = goal.mon
         tue = goal.tue
@@ -77,6 +77,7 @@ class SurveyAdapter(private val ctx: Context, private val listGoal : List<Goal>?
         print("PROGRESSINT = $progressInt")
 
 
+        // View holder and listener
         var viewHolder = ViewHolder()
         viewHolder.button = rowView.findViewById(R.id.survey_yes)
         viewHolder.button.setOnClickListener {
@@ -86,6 +87,7 @@ class SurveyAdapter(private val ctx: Context, private val listGoal : List<Goal>?
 
             var day = calendar.get(Calendar.DAY_OF_WEEK)
             Log.d("tag", "ADD TO DAY CALLED")
+            // Add to day value depending on the day of the week the button is pressed
             when (day){
                 Calendar.SUNDAY ->     currentGoal.sun += 1
                 Calendar.MONDAY ->     currentGoal.mon += 1
@@ -96,6 +98,7 @@ class SurveyAdapter(private val ctx: Context, private val listGoal : List<Goal>?
                 Calendar.SATURDAY ->   currentGoal.sat += 1
             }
 
+            // increment progressCurrent
             currentGoal.progressCurrent += 1
 
             Log.d("1","DAY OF THE WEEK")
@@ -128,6 +131,7 @@ class SurveyAdapter(private val ctx: Context, private val listGoal : List<Goal>?
         setProgress()
     }
 
+    // sets progress bar fill and color
     private fun setProgress(){
         progress_bar.progress = progressInt
 

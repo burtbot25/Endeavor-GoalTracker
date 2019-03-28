@@ -13,41 +13,42 @@ class LocalData(context: Context) {
     private val hour = "hour"
     private val min = "min"
 
+    // initialize shared preferences
     init {
         this.appSharedPrefs = context.getSharedPreferences(APP_SHARED_PREFS, Context.MODE_PRIVATE)
         this.prefsEditor = appSharedPrefs.edit()
     }
 
-    // Settings Page Reminder Time (Hour)
-
+    // get Hour
     fun getHour() : Int{
         return appSharedPrefs.getInt(hour, 20)
     }
 
+    // set Hour
     fun setHour(h : Int){
         prefsEditor.putInt(hour, h)
         prefsEditor.commit()
     }
 
 
-    // Settings Page Reminder Time (Minutes)
-
+    // get Minute
     fun getMin() : Int {
         return appSharedPrefs.getInt(min, 0)
     }
 
+    // set Minute
     fun setMin(m: Int){
         prefsEditor.putInt(min, m)
         prefsEditor.commit()
     }
 
 
-    // Settings Page Set Reminder
-
+    // get reminder status
     fun getReminderStatus(): Boolean {
         return appSharedPrefs.getBoolean(reminderStatus, false)
     }
 
+    // set reminder status
     fun setReminderStatus(status: Boolean) {
         prefsEditor.putBoolean(reminderStatus, status)
         prefsEditor.commit()

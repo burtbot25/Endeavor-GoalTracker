@@ -69,6 +69,7 @@ class CustomAdapter(private val ctx: Context, private val listGoal : List<Goal>?
         setProgress()
     }
 
+    // Sets the progress bar fill and color
     private fun setProgress(){
 
         var progress = (goal.progressCurrent.toDouble() / goal.progressGoal.toDouble()) * 100
@@ -94,6 +95,7 @@ class CustomAdapter(private val ctx: Context, private val listGoal : List<Goal>?
         }
     }
 
+    // Sets icon based on goalType
     private fun setIcon(){
         when (goal.goalType){
             "Health" -> row_icon.setImageResource(R.drawable.health96)

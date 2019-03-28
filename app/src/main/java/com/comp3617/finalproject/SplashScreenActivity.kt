@@ -10,6 +10,7 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
+        // Auto send to Main Activity
         var intent = Intent(applicationContext, MainActivity::class.java)
         startActivity(intent)
         finish()

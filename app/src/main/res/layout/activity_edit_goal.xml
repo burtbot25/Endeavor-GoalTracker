@@ -8,9 +8,10 @@
         tools:context=".EditGoalActivity"
         android:orientation="vertical">
 
-    <ScrollView android:id="@+id/ScrollViewID"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+    <ScrollView
+            android:id="@+id/ScrollViewID"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -18,8 +19,13 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
         >
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                      android:text="Goal Name:"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Goal Name:"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/Black"/>
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -28,8 +34,12 @@
                     android:text="Lose Weight"
             />
 
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                      android:text="Goal Quantity"
+            <TextView
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Weekly Goal"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/Black"
             />
             <EditText
                     android:layout_width="match_parent"
@@ -39,8 +49,9 @@
                     android:text="12"
             />
 
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -48,6 +59,8 @@
                         android:textSize="16sp"
                         android:paddingEnd="16dp"
                         android:layout_weight="1"
+                        android:textStyle="bold"
+                        android:textColor="@color/Black"
                 />
                 <TextView
                         android:layout_width="wrap_content"
@@ -86,19 +99,21 @@
                     android:id="@+id/progress_layout"
             >
 
-                <android.support.constraint.ConstraintLayout android:layout_width="match_parent"
-                                                             android:layout_height="match_parent"
-                                                             android:gravity="center"
+                <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
                 >
 
 
-                    <LinearLayout android:layout_width="wrap_content"
-                                  android:layout_height="wrap_content"
-                                  app:layout_constraintBottom_toBottomOf="parent"
-                                  app:layout_constraintLeft_toLeftOf="parent"
-                                  app:layout_constraintRight_toRightOf="parent"
-                                  app:layout_constraintTop_toTopOf="parent"
-                    android:orientation="horizontal">
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:orientation="horizontal">
                         <TextView
                                 android:layout_width="wrap_content" android:layout_height="wrap_content"
                                 android:id="@+id/edit_progress_counter"

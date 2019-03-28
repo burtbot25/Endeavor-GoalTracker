@@ -35,17 +35,14 @@ class MainActivity : AppCompatActivity(), DeleteFragment.DeleteFragmentListener 
         dbRef.addValueEventListener(object: ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
             }
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // dataSnapshot has all the values of the ref database node (e.g., of type "heroes")
-                // this snapshot will contain all the heroes in Firebase database
 
-                // Need a list to store the heroes (define a mutable list)
-                // must check to see if we have anythign in the database first
+            // when data changes, refresh the view with latest data
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
 
                 if (dataSnapshot.exists()){
-                    goalList.clear() // this clear will take out the old values and the adapter adds them back again later
+                    goalList.clear()
                     for (i in dataSnapshot.children){
-                        val goal = i.getValue(Goal::class.java) // getvalue takes a class as a param
+                        val goal = i.getValue(Goal::class.java)
                         goalList.add(goal!!)
                     }
                     refreshList()
@@ -56,7 +53,7 @@ class MainActivity : AppCompatActivity(), DeleteFragment.DeleteFragmentListener 
 
 
 
-        // Event Handler for the Row View "Clicked" by the User.  Sends user to Edit Activity
+        // Item click brings up the BarChartActivity
         list_view.setOnItemClickListener(object : AdapterView.OnItemClickListener {
             override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 goal = list_view.getItemAtPosition(position) as Goal
@@ -74,7 +71,7 @@ class MainActivity : AppCompatActivity(), DeleteFragment.DeleteFragmentListener 
             }
         })
 
-        // Listener for row item brings up delete dialog on long click
+        // Long Click to bring up EditGoalActivity
         list_view.onItemLongClickListener = object : AdapterView.OnItemLongClickListener{
             override fun onItemLongClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long): Boolean {
                 val intent = Intent(this@MainActivity, EditGoalActivity::class.java)
@@ -100,17 +97,20 @@ class MainActivity : AppCompatActivity(), DeleteFragment.DeleteFragmentListener 
             }
         }
 
+        // Button to bring up AddGoalActivity
         toolbar_add.setOnClickListener {
             val intent = Intent(this@MainActivity, AddGoalActivity::class.java)
             startActivity(intent)
         }
 
+        // Button to bring up SurveyActivity
         toolbar_survey.setOnClickListener {
             //val intent = Intent(this@MainActivity, SurveyActivity::class.java)
             val intent = Intent(this@MainActivity, SurveyActivity::class.java)
             startActivity(intent)
         }
 
+        // Button to bring up ReminderActivity
         toolbar_reminder.setOnClickListener {
             val intent = Intent(this@MainActivity, ReminderActivity::class.java)
             startActivity(intent)
@@ -118,6 +118,7 @@ class MainActivity : AppCompatActivity(), DeleteFragment.DeleteFragmentListener 
     }
 
     // Deletes task on confirmation
+    // not used
     override fun onDialogPositiveClick(dialog: DialogFragment) {
         itemReference = dbRef.child(goal.uid)
         itemReference.removeValue()
@@ -125,11 +126,13 @@ class MainActivity : AppCompatActivity(), DeleteFragment.DeleteFragmentListener 
     }
 
     // Show delete dialog fragment
+    // not used
     fun showDeleteDialog(){
         val dialog = DeleteFragment()
         dialog.show(supportFragmentManager, "TAG1")
     }
 
+    // Refreshes Dashboard
     private fun refreshList(){
         val adapter = CustomAdapter(applicationContext, goalList)
         list_view.adapter = adapter
@@ -145,24 +148,6 @@ class MainActivity : AppCompatActivity(), DeleteFragment.DeleteFragmentListener 
 
     // Events for menu items
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
-//        // Opens AddGoalActivity when Add icon is pressed
-//        R.id.toolbar_goal -> {
-//            val intent = Intent(this, AddGoalActivity::class.java)
-//            startActivity(intent)
-//            true
-//        }
-//        // Opens SurveyActivity when Survey icon is pressed
-//        R.id.toolbar_survey -> {
-//            val intent = Intent(this, SurveyActivity::class.java)
-//            startActivity(intent)
-//            true
-//        }
-//        // Opens ReminderActivity when Reminder icon is pressed
-//        R.id.toolbar_reminder -> {
-//            val intent = Intent(this, ReminderActivity::class.java)
-//            startActivity(intent)
-//            true
-//        }
         // Opens Info Activity
         R.id.toolbar_info -> {
             val intent = Intent(this, InfoActivity::class.java)

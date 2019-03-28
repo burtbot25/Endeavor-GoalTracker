@@ -36,17 +36,11 @@ class ReminderActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reminder)
         scheduler = NotificationScheduler()
-
         localData = LocalData(applicationContext)
-
         myClipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-
         ll_set_time = findViewById(R.id.ll_set_time)
-
         tvTime = findViewById(R.id.tv_reminder_time_desc)
-
         reminderSwitch = findViewById(R.id.timerSwitch)
-
 
         hour = localData.getHour()
         min = localData.getMin()
@@ -54,9 +48,11 @@ class ReminderActivity : AppCompatActivity() {
         tvTime.text = getFormatedTime(hour, min)
         reminderSwitch.isChecked = localData.getReminderStatus()
 
+        // Change transparency of switch view
         if (!localData.getReminderStatus())
             ll_set_time.alpha = 0.4f
 
+        // Switch view listener to activate reminder
         reminderSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
             localData.setReminderStatus(isChecked)
             if (isChecked) {
@@ -68,17 +64,20 @@ class ReminderActivity : AppCompatActivity() {
                 )
                 ll_set_time.alpha = 1f
             } else {
+                // Cancels scheduler
                 scheduler.cancelReminder(this@ReminderActivity, AlarmReceiver::class.java)
                 ll_set_time.alpha = 0.4f
             }
         }
 
+        // Show time picker dialog
         set_btn.setOnClickListener {
             if (localData.getReminderStatus())
                 showTimePickerDialog(localData.getHour(), localData.getMin())
 
         }
 
+        // Close activity
         close_btn_reminder.setOnClickListener {
             finish()
         }
@@ -86,6 +85,7 @@ class ReminderActivity : AppCompatActivity() {
     }
 
 
+    // Show Time Picker Dialog
     private fun showTimePickerDialog(h: Int, m: Int) {
 
         val builder = TimePickerDialog(this,
@@ -104,11 +104,11 @@ class ReminderActivity : AppCompatActivity() {
                 )
             }, h, m, false
         )
-
         builder.show()
 
     }
 
+    // Format time and get it
     fun getFormatedTime(h: Int, m: Int): String {
         val OLD_FORMAT = "HH:mm"
         val NEW_FORMAT = "hh:mm a"

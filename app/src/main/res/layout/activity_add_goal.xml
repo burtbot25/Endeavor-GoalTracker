@@ -16,11 +16,13 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
     >
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                  android:text="Goal Name:"
-                  android:textSize="16sp"
-                  android:textStyle="bold"
-                  android:textColor="@color/Black"
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Goal Name:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/Black"
         />
         <EditText
                 android:layout_width="match_parent"
@@ -121,7 +123,7 @@
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-        android:orientation="horizontal">
+                android:orientation="horizontal">
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

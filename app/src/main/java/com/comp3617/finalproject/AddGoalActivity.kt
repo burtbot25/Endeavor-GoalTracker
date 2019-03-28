@@ -69,10 +69,10 @@ class AddGoalActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
             }
         } // end of btn
 
+        // Closes activity without save
         add_btn_cancel.setOnClickListener {
             finish()
         }
-
 
     }
 
@@ -111,10 +111,12 @@ class AddGoalActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
         formattedDate = savedInstanceState!!.getString("date")
     }
 
+    // When nothing is selected, default to Other
     override fun onNothingSelected(parent: AdapterView<*>?) {
         goalType = "Other"
     }
 
+    // Sets goalType based on selection from spinner
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         goalType = parent!!.getItemAtPosition(position).toString()
         println("DROPDOWN SELECTION IS: " + parent!!.getItemAtPosition(position))

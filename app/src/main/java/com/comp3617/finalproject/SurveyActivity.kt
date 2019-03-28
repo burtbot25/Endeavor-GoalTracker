@@ -28,17 +28,14 @@ class SurveyActivity : AppCompatActivity() {
         dbRef.addValueEventListener(object: ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
             }
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // dataSnapshot has all the values of the ref database node (e.g., of type "heroes")
-                // this snapshot will contain all the heroes in Firebase database
 
-                // Need a list to store the heroes (define a mutable list)
-                // must check to see if we have anythign in the database first
+            // Refreshes Dashboard with latest data on data change
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
 
                 if (dataSnapshot.exists()){
-                    goalList.clear() // this clear will take out the old values and the adapter adds them back again later
+                    goalList.clear()
                     for (i in dataSnapshot.children){
-                        val goal = i.getValue(Goal::class.java) // getvalue takes a class as a param
+                        val goal = i.getValue(Goal::class.java)
                         goalList.add(goal!!)
                     }
                     refreshList()
@@ -60,6 +57,7 @@ class SurveyActivity : AppCompatActivity() {
 
     }
 
+    // Refreshes Survey Activity with new info
     private fun refreshList(){
         val adapter = SurveyAdapter(applicationContext, goalList)
         survey_list_view.adapter = adapter

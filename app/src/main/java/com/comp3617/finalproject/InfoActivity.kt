@@ -11,6 +11,7 @@ class InfoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_info)
 
+        // closes activity
         close_btn_info.setOnClickListener {
             finish()
         }
